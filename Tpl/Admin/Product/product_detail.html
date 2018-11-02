@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情预览</title>
+    <link rel="stylesheet" href="__Admin_CSS__/detail.css">
+</head>
+<body>
+    <section class="detail">
+        <h1>{$product.product_title}</h1>
+        <p class="about">类型：{$product.product_type_name} 发布时间：{$product.create_at|substr=0,10}</p>
+        <div>
+            {$product.product_detail}
+        </div>
+    </section>
+</body>
+</html>

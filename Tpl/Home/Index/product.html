@@ -1,0 +1,279 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*面包屑导航*/
+        .crumbs{
+            height: 43px;
+            line-height: 80px;
+            color: #333;
+        }
+        .crumbs>a{
+            color: #333;
+        }
+        .crumbs>a:hover{
+            text-decoration: none;
+            color: #333;
+        }
+        /*面包屑导航结束*/
+        /*内容区*/
+        .product{
+            width: 100%;
+            height: 45px;
+            margin-bottom:60px ;
+        }
+        .product>ul{
+            width: 100%;
+            list-style: none;
+            padding: 0;
+        }
+        .product>ul>li{
+            height: 100%;
+            line-height: 45px;
+            float: left;
+            width: 20%;
+            text-align: center;
+            background: #eee;
+            color: #3966a8;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .product>ul>li:hover{
+            background: #3966a8;
+            color: white;
+        }
+        .product>ul>li>span{
+            display:block;
+            position: relative;
+            height: 19px;
+            width: 1px;
+            float: left;
+            background: #3966a8;
+            top: 13px;
+        }
+        .describe-list{
+            width: 100%;
+            display: none;
+        }
+        .describe{
+            width: 100%;
+            display: inline-block;
+            padding-bottom: 46px;
+            margin-bottom: 57px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .describe-img{
+            height: 315px;
+            background-size:cover ;
+        }
+        .describe-title{
+            margin: 38px auto auto 23px;
+            padding: 0 0 0 7px;
+            border-left: 5px solid #3966a8;
+            font-size: 1.5em;
+            font-weight: 800;
+            line-height: 1em;
+            color:#3966a8;
+        }
+        .describe-title-en{
+            margin: 2px 0 45px 35px;
+            font-size: 1.1em;
+            color:#daa438;
+        }
+        .describe-text{
+            margin: 0 0 0 35px;
+        }
+        .describe-content{
+            height: 315px;
+            background: #f7f7f7;
+        }
+        .describe-btn{
+            width: 90px;
+            height: 25px;
+            line-height: 25px;
+            background:#3966a8;
+            text-align: center;
+            border-radius: 8px;
+            color: white;
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+            cursor: pointer;
+        }
+        .product-li{
+            height: 440px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-list{
+            margin-bottom: 200px;
+        }
+        .product-list-img{
+            width: 100%;
+            height: 250px;
+            background-size: cover!important;
+        }
+        .product-title{
+            font-size: 1.5em;
+            font-weight: 800;
+            color:#3966a8;
+            margin-top: 16px;
+        }
+        .product-title-en{
+            font-size: 1em;
+            color:#daa438;
+            margin-bottom: 33px;
+        }
+        .product-btn{
+            height: 23px;
+            line-height: 23px;
+            width: 85px;
+            font-size: 0.8em;
+            border-radius: 1px;
+            background:#3966a8;
+            color: white;
+            margin: auto;
+            position: absolute;
+            bottom: 20px;
+            left: 0;right: 0;
+        }
+        .product-btn:hover{
+            background: white;
+            border: 1px solid #3966a8;
+            color:#3966a8;
+        }
+        .product-name{
+            width: 100%;
+            height: 100%;
+            background:#f7f7f7;
+            padding-bottom: 40px;
+        }
+        /*内容区结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: url(__Home_IMG__/banner7.jpg) no-repeat center center;background-size: cover">
+                <div class="container swiper-content">
+                    <div class="swiper-text">
+                        <div class="swiper-company">产品中心</div>
+                        <div class="swiper-company-en" style="padding-top: 15px">Product</div>
+                    </div>
+                    <div class="swiper-describe">
+                        科技立业，诚信为本，以质量赢天下，以高目标、高科技、高品质、高效益为发展宗旨
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</block>
+<block name="content">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="crumbs"><a href="{:U('index/index')}">首页</a> > <a href="javascript:void(0)">产品中心</a></div>
+    </div>
+    <div class="container">
+        <div class="product">
+            <ul>
+                <volist name="proType" id="v" key="k">
+                    <switch name="k">
+                        <case value="1">
+                            <li data-id="{$v.id}">{$v.product_type_name}</li>
+                        </case>
+                        <default />
+                        <li data-id="{$v.id}"><span></span>{$v.product_type_name}</li>
+                    </switch>
+                </volist>
+            </ul>
+        </div>
+        <div class="describe">
+            <volist name="proType" id="v">
+                <div class="describe-list">
+                    <div class="col-md-5 describe-img" style="background: url({$v.product_type_url}) no-repeat center center;background-size:cover"></div>
+                    <div class="col-md-7 describe-content">
+                        <div class="describe-title">{$v.product_type_name}</div>
+                        <div class="describe-title-en">{$v.product_type_name_en}</div>
+                        <div class="describe-text">{$v.product_type_brief}</div>
+                    </div>
+                </div>
+            </volist>
+        </div>
+        <div class="product-list">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(window).ready(function(){
+            var length = $(".product ul li").length;
+            var id = "{$id}";
+            ajax(id)
+            $(".product ul li").width(100/length+"%");
+            $(".describe-list").eq(id-1).show();
+            $(".product ul li").click(function(){
+                var num = $(this).index();
+                $(".describe-list").hide();
+                $(".describe-list").eq(num).show();
+                ajax($(this).attr("data-id"));
+            })
+        })
+        function ajax(id){
+            $.ajax({
+                url:"{:U('M/getProductInfo')}",
+                dataType:"json",
+                Type:'post',
+                data:{
+                    t:id
+                },success:function(data){
+                    $(".product-li").remove();
+                    var list = data.data.data;
+                    $.each(list,function(i,v){
+                        var a = '<div class="col-sm-6 col-md-3 product-li"> <div class="product-name"> <a href={:U("index/productDetails")}?id='+ v.id +'><div class="product-list-img" style="background: url('+ v.product_url +') no-repeat center center"></div></a> <div class="product-title">'+ v.product_title +'</div> <div class="product-title-en">'+ v.product_en_title +'</div><a href={:U("index/productDetails")}?id='+ v.id +'><div class="product-btn">了解详情</div></a> </div> </div>';
+                        $(".product-list .row").append(a);
+                    })
+//                    console.log(list);
+                }
+            })
+        }
+    </script>
+</block>

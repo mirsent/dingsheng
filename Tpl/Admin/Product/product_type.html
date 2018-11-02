@@ -1,0 +1,193 @@
+<extend name="Public/base" />
+<block name="css">
+    <link rel="stylesheet" href="__STATICS__/fileinput/css/fileinput.min.css">
+</block>
+<block name="header">{$title} <small>管理</small></block>
+<block name="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <button type="button" class="btn btn-default" id="add"><i class="fa fa-plus fa-fw"></i>添加</button>
+            <!-- <button type="button" class="btn btn-default" id="detail"><i class="fa fa-search fa-fw"></i>详情</button> -->
+            <button type="button" class="btn btn-default" id="edit"><i class="fa fa-edit fa-fw"></i>编辑</button>
+            <button type="button" class="btn btn-default" id="delete"><i class="fa fa-trash-o fa-fw"></i>删除</button>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered table-striped table-hover table-single">
+                <thead>
+                    <tr>
+                        <th>{$title}</th>
+                        <th>英文</th>
+                        <th>详情</th>
+                        <th width="200">图片</th>
+                        <th width="10%">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/html" id="actionModal">
+        <form class="layui-form" id="actionForm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">{$title}</label>
+                <div class="layui-input-block">
+                    <input type="text" name="{$name}" placeholder="请输入{$title}" autocomplete="off" lay-verify="required" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">英文</label>
+                <div class="layui-input-block">
+                    <input type="text" name="product_type_name_en" placeholder="请输入英文" autocomplete="off" lay-verify="required" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">图片</label>
+                <div class="layui-input-block">
+                    <input type="file" name="img" class="layui-input file-loading" id="uploadImg">
+                    <input type="hidden" name="product_type_url">
+                </div>
+            </div>
+            <div class="layui-form-item layui-form-text">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea name="product_type_brief" placeholder="请输入简介" class="layui-textarea"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">状态</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="status" value="{:C('STATUS_Y')}" title="启用" checked>
+                    <input type="radio" name="status" value="{:C('STATUS_B')}" title="禁用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="button" class="layui-btn layui-btn-normal" lay-submit lay-filter="submit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+            <input type="hidden" name="id">
+        </form>
+    </script>
+</block>
+<block name="js">
+    <script src="__STATICS__/fileinput/js/fileinput.min.js"></script>
+    <script src="__STATICS__/fileinput/js/fileinput_locale_zh.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            oTable = $(".table").DataTable({
+                dom: "<'row'<'col-sm-6'l><'col-sm-6'f>> t <'row'<'col-sm-6'i><'col-sm-6'p>>",
+                serverSide: false,
+                searching: true,
+                ajax: {
+                    url: "{:U('Sys/getDtInfo')}",
+                    data: {
+                        table: "{$table}"
+                    }
+                },
+                columns: [
+                    { "data": "{$name}" },
+                    { "data": "product_type_name_en" },
+                    { "data": "product_type_brief" },
+                    {
+                        "data": "product_type_url",
+                        "orderable": false,
+                        "render": DT.RENDER.IMG
+                    },
+                    DT.COLUMN.STATUS
+                ],
+                initComplete: function(settings, json) {
+
+                }
+            });
+        });
+
+        /************************* document ready end *****************************/
+
+        layui.use(['layer', 'form'], function() {
+            var layer = layui.layer,
+                form = layui.form;
+
+            // 新增
+            $('#add').on('click', function() {
+                layui_form('添加{$title}', function(){
+                    var oFileInput = new FileInput();
+                    oFileInput.Init("uploadImg", "{:U('Banner/upload')}");
+                    $('#uploadImg').on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                        var image_path = data.response.data.image_path;
+                        $('input[name="product_type_url"]').val(image_path);
+                    });
+                }, '600px');
+                form.render();
+            });
+
+            // 编辑
+            $('#edit').on('click', function() {
+                getSelectedData(oTable, function(data){
+                    layui_form('修改{$title}', function(){
+                        dataToForm('actionForm', data);
+
+                        var oFileInput = new FileInput();
+                        oFileInput.Init("uploadImg", "{:U('Banner/upload')}");
+                        $('#uploadImg').fileinput('refresh', {
+                            initialPreview: ['<img src="'+data['product_type_url']+'" class="img-thumbnail">'],
+                            initialPreviewConfig: [{
+                                caption: '图标',
+                                url: '__URL__/deletePic',
+                                extra: {
+                                    id: data['id']
+                                },
+                            }],
+                        }).on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                            var image_path = data.response.data.image_path;
+                            $('input[name="product_type_url"]').val(image_path);
+                        }).on('filepredelete', function(event, key, jqXHR, data){
+                            $.ajax({
+                                type: "POST",
+                                url: '__URL__/deleteProTypePicById',
+                                data: data,
+                                dataType:"json",
+                                success: function(result) {
+                                    if (result.status == 1) {
+                                        $('input[name="product_type_url"]').val(null);
+                                    }
+                                }
+                            });
+                        });
+                    }, '600px');
+                    form.render();
+                });
+            });
+
+            // 提交
+            form.on('submit(submit)', function(data) {
+                formOptions.data = { 'table': "{$table}" };
+                if ($('#uploadImg').val()) {
+                    $('#uploadImg').fileinput('upload')
+                    .on("filebatchuploadsuccess", function(event, data) {
+                        if(data.response.status){
+                            submit_form("{:U('Sys/addAndEdit')}");
+                        }
+                    });
+                } else {
+                    submit_form("{:U('Sys/addAndEdit')}");
+                }
+            });
+        });
+
+        // 删除
+        $('#delete').on('click', function() {
+            getSelectedData(oTable, function(data){
+                var title = '确认删除{$title} ' + data['{$name}'] + ' ?';
+                set_status(title, "{:U('Sys/setStatus')}", {
+                    id: data.id,
+                    status: {:C('STATUS_N')},
+                    table: "{$table}"
+                });
+            });
+        });
+    </script>
+</block>

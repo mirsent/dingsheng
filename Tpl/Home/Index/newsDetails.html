@@ -1,0 +1,225 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*标题横线*/
+        .line{
+            position: relative;
+            height: 2px;
+            background:#3966a8;
+            margin:50px auto 70px auto;
+            text-align: center;
+            z-index: 10;
+        }
+        .line-name-en{
+            position: relative;
+            display: inline-block;
+            margin: auto;
+            padding: 0 25px;
+            background: white;
+            color: #3966a8;
+            font-size: 1.6em;
+            top:-14px
+        }
+        .ling-name{
+            position: relative;
+            font-size: 1.4em;
+            top:-10px
+        }
+        .dian1{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            left: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        .dian2{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            right: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        /*标题横线结束*/
+        /*面包屑导航*/
+        .crumbs{
+            height: 43px;
+            line-height: 80px;
+            color: #333;
+        }
+        .crumbs>a{
+            color: #333;
+        }
+        .crumbs>a:hover{
+            text-decoration: none;
+            color: #333;
+        }
+        /*面包屑导航结束*/
+        /*内容区*/
+        .news-title{
+            margin-bottom: 40px;
+            font-size: 1.3em;
+            font-weight: 800;
+        }
+        .news-time{
+            margin-bottom: 25px;
+        }
+        .news-time >span{
+            color: #daa438;
+        }
+        .page{
+            font-size: 1em;
+            color: #f4c475;
+        }
+        .page>a{
+            font-size: 1em;
+            color: black;
+        }
+        .news-details{
+            border-bottom: 1px dashed #cccccc;
+            margin-bottom: 32px;
+        }
+        .news-details>P{
+            width: 58%;
+            margin: auto;
+        }
+        .news-details>P>img{
+            width: 100%!important;
+        }
+        /*内容区结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: url(__Home_IMG__/banner6.jpg) no-repeat center center;background-size: cover">
+                <div class="container swiper-content">
+                    <div class="swiper-text">
+                        <div class="swiper-company">行业动态</div>
+                        <div class="swiper-company-en" style="padding-top: 15px">News</div>
+                    </div>
+                    <div class="swiper-describe">
+                        科技立业，诚信为本，以质量赢天下，以高目标、高科技、高品质、高效益为发展宗旨
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</block>
+<block name="content">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="crumbs"><a href="{:U('index/index')}">首页</a> > <a href={:U('index/news')}">行业动态</a> > <a href="javascript:void(0)">动态详情</a></div>
+    </div>
+    <div class="container text-center">
+        <div class="news-title"></div>
+        <div class="news-time">发布时间：<span></span></div>
+    </div>
+    <div class="container news-details">
+
+    </div>
+    <div class="container page">
+        上一篇：<a href="javascript:void(0)" id="prev" class="move-btn"></a><br>
+        下一篇：<a href="javascript:void(0)" id="next" class="move-btn"></a>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(window).ready(function(){
+            var id = "{$id}";
+            news(id);
+            function news(id){
+                $.ajax({
+                    url:"{:U('M/getNewsDetail')}",
+                    dataType:"json",
+                    type:"post",
+                    data:{
+                        n:id
+                    },success:function(data){
+                        console.log(data);
+                        var app = data.data.data;
+                        var prev = data.data.prev;
+                        var next = data.data.next;
+                        var time = app.create_at.split(" ");
+                        var day =time[0].split("-");
+                        var date = ''+day[0]+'/'+day[1]+'/'+day[2]+'';
+                        $(".news-title").html(app.news_title);
+                        $(".news-time").children("span").html(date);
+                        $(".news-details").html(app.news_detail);
+
+                        if(prev){
+                            $("#prev").html(prev.news_title);
+                            $("#prev").attr("data-id",prev.id);
+                        }else {
+                            $("#prev").html("无");
+                            $("#prev").attr("data-id","-1");
+                        }
+                        if(next){
+                            $("#next").html(next.news_title);
+                            $("#next").attr("data-id",next.id);
+                        }else {
+                            $("#next").html("无");
+                            $("#next").attr("data-id","-1");
+                        }
+                    }
+                })
+            }
+            $(".move-btn").click(function(){
+                var id = $(this).attr("data-id");
+                if(id !== "-1"){
+                    news(id);
+                    $(window).scrollTop(0);
+                }
+            })
+        });
+    </script>
+</block>

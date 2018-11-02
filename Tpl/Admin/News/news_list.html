@@ -1,0 +1,338 @@
+<extend name="Public/base" />
+<block name="css">
+    <link rel="stylesheet" href="__STATICS__/fileinput/css/fileinput.min.css">
+    <link rel="stylesheet" href="__STATICS__/summernote/summernote.css">
+</block>
+<block name="header">资讯 <small>列表</small></block>
+<block name="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <button type="button" class="btn btn-default" id="add"><i class="fa fa-plus fa-fw"></i>添加</button>
+            <button type="button" class="btn btn-default" id="edit"><i class="fa fa-edit fa-fw"></i>编辑</button>
+            <button type="button" class="btn btn-default" id="detail"><i class="fa fa-search fa-fw"></i>预览</button>
+            <button type="button" class="btn btn-default" id="delete"><i class="fa fa-trash-o fa-fw"></i>删除</button>
+        </div>
+        <div class="box-body">
+            <table class="table table-bordered table-striped table-hover table-single">
+                <thead>
+                    <tr>
+                        <th width="15%">资讯封面</th>
+                        <th>资讯类型</th>
+                        <th width="15%">资讯标题</th>
+                        <th width="25%">简介</th>
+                        <th>发布时间</th>
+                        <th>查看次数</th>
+                        <th>状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script type="text/html" id="actionModal">
+        <form class="layui-form" id="actionForm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">资讯标题</label>
+                <div class="layui-input-block">
+                    <input type="text" name="news_title" placeholder="请输入资讯标题" autocomplete="off" lay-verify="required" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">资讯类型</label>
+                <div class="layui-input-block">
+                    <select name="news_type_id">
+                        <option value="">请选择资讯类型</option>
+                        <foreach name="newsType" item="v">
+                            <option value="{$v.id}">{$v.news_type_name}</option>
+                        </foreach>
+                    </select>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">简介</label>
+                <div class="layui-input-block">
+                    <textarea name="news_brief" placeholder="请输入资讯简介" class="layui-textarea" lay-verify="required"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">资讯详情</label>
+                <div class="layui-input-block">
+                    <textarea name="news_detail" placeholder="请输入资讯详情" class="layui-textarea" id="summernote" lay-verify="required"></textarea>
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">资讯图片</label>
+                <div class="layui-input-block">
+                    <input type="file" name="img" class="layui-input file-loading" id="uploadImg">
+                    <input type="hidden" name="news_url">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">状态</label>
+                <div class="layui-input-block">
+                    <input type="radio" name="status" value="{:C('STATUS_Y')}" title="启用" checked>
+                    <input type="radio" name="status" value="{:C('STATUS_B')}" title="禁用">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="button" class="layui-btn layui-btn-normal" lay-submit lay-filter="submit">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                </div>
+            </div>
+            <input type="hidden" name="id">
+        </form>
+    </script>
+</block>
+<block name="js">
+    <script src="__STATICS__/fileinput/js/fileinput.min.js"></script>
+    <script src="__STATICS__/fileinput/js/fileinput_locale_zh.js"></script>
+    <script src="__STATICS__/summernote/summernote.min.js"></script>
+    <script src="__STATICS__/summernote/lang/summernote-zh-CN.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            oTable = $(".table").DataTable({
+                ajax: function(data, callback, settings) {
+                    param = {
+                        draw: data.draw,
+                        limit: data.length,
+                        start: data.start,
+                        page: (data.start / data.length) + 1,
+                        order: data.order,
+                        search: $('.fuzzy-search').val(),
+                        news_title: $('.search-news').val(),
+                        news_type_id: $('.news-type').val(),
+                        day: $('.search-date').val()
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "{:U('News/getNewsInfo')}",
+                        data: param,
+                        dataType: "json",
+                        success: function(result) {
+                            callback(result);
+                        }
+                    });
+                },
+                columns: [
+                    {
+                        "data": "news_url",
+                        "orderable": false,
+                        "render": DT.RENDER.IMG
+                    },
+                    { "data": "news_type_name" },
+                    { "data": "news_title" },
+                    {
+                        "data": "news_brief",
+                        "orderable": false
+                    },
+                    {
+                        "data": "create_at",
+                        "class": "text-center"
+                    },
+                    {
+                        "data": "times",
+                        "class": "text-right"
+                    },
+                    DT.COLUMN.STATUS
+                ],
+                initComplete: function(settings, json) {
+                    // 高级搜索
+                    var advancedHtml = '<form class="layui-form search-box">';
+                    advancedHtml += '<div class="layui-inline"><input type="text" placeholder="请输入资讯标题" class="layui-input search-news"></div> ';
+                    advancedHtml += '<div class="layui-inline"><select class="news-type"><option value="">请选择资讯类型</option><foreach name="newsType" item="v"> <option value="{$v.id}">{$v.news_type_name}</option> </foreach></select></div> ';
+                    advancedHtml += '<div class="layui-inline"><input type="text" placeholder="请选择发布时间" class="layui-input search-date"></div> ';
+                    advancedHtml += '<button type="button" class="btn btn-default" id="advancedSearch"><i class="fa fa-search fa-fw"></i>查询</button></form>';
+
+                    $('.search-item').append(DTSearchGroup);
+                    $('#searchCollapse').append(advancedHtml);
+                    layui.use(['form','laydate'], function(){
+                        var form = layui.form,
+                            laydate = layui.laydate;
+                        laydate.render({elem: '.search-date'})
+                        form.render();
+                    })
+                }
+            });
+        });
+
+        /************************* document ready end *****************************/
+
+        layui.use(['layer', 'form', 'laydate'], function() {
+            var layer = layui.layer,
+                laydate = layui.laydate,
+                form = layui.form;
+
+            // 新增
+            $('#add').on('click', function() {
+                layer.open({
+                    type: 1,
+                    shadeClose: true,
+                    title: '添加资讯信息',
+                    maxmin: true,
+                    content: $('#actionModal').html(),
+                    area: ['70%','90%'],
+                    success: function(layero, index){
+                        $('#summernote').summernote({
+                            placeholder: '请输入资讯详情',
+                            height: '300',
+                            lang: 'zh-CN',
+                            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather','宋体','微软雅黑','楷体','黑体'],
+                            toolbar: [
+                                ['style', ['fontname', 'bold', 'italic', 'underline', 'clear']],
+                                ['fontsize', ['fontsize']],
+                                ['color', ['color']],
+                                ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
+                                ['Insert', ['picture', 'link', 'video', 'table', 'hr']],
+                                ['Misc', ['fullscreen']]
+                            ],
+                            callbacks: {
+                                onImageUpload: function(files, editor, $editable) {
+                                    var formData = new FormData();
+                                    formData.append('file', files[0]);
+
+                                    $.ajax({
+                                        url: "{:U('Banner/upload')}",
+                                        type: "POST",
+                                        data: formData,
+                                        dataType: 'JSON',
+                                        processData: false,
+                                        contentType: false,
+                                        success: function (result) {
+                                            if (result.status == 1) {
+                                                $('#summernote').summernote('insertImage', result.data.image_path, 'img');
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
+                        var oFileInput = new FileInput();
+                        oFileInput.Init("uploadImg", "{:U('Banner/upload')}");
+                        $('#uploadImg').on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                            var image_path = data.response.data.image_path;
+                            $('input[name="news_url"]').val(image_path);
+                        });
+                    }
+                });
+                form.render();
+            });
+
+            // 编辑
+            $('#edit').on('click', function() {
+                getSelectedData(oTable, function(data){
+                    layer.open({
+                        type: 1,
+                        shadeClose: true,
+                        title: '编辑资讯信息',
+                        maxmin: true,
+                        fixed: false,
+                        content: $('#actionModal').html(),
+                        area: ['70%','90%'],
+                        success: function(layero, index){
+                            dataToForm('actionForm', data);
+                            $('#summernote').summernote({
+                                height: '300',
+                                lang: 'zh-CN',
+                                fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'Merriweather','宋体','微软雅黑','楷体','黑体'],
+                                toolbar: [
+                                    ['style', ['fontname', 'bold', 'italic', 'underline', 'clear']],
+                                    ['fontsize', ['fontsize']],
+                                    ['color', ['color']],
+                                    ['para', ['style', 'ul', 'ol', 'paragraph', 'height']],
+                                    ['Insert', ['picture', 'link', 'video', 'table', 'hr']],
+                                    ['Misc', ['fullscreen']]
+                                ],
+                                callbacks: {
+                                    onImageUpload: function(files, editor, $editable) {
+                                        var formData = new FormData();
+                                        formData.append('file', files[0]);
+
+                                        $.ajax({
+                                            url: "{:U('Banner/upload')}",
+                                            type: "POST",
+                                            data: formData,
+                                            dataType: 'JSON',
+                                            processData: false,
+                                            contentType: false,
+                                            success: function (result) {
+                                                if (result.status == 1) {
+                                                    $('#summernote').summernote('insertImage', result.data.image_path, 'img');
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            });
+                            var oFileInput = new FileInput();
+                            oFileInput.Init("uploadImg", "{:U('Banner/upload')}");
+                            $('#uploadImg').fileinput('refresh', {
+                                initialPreview: ['<img src="'+data['news_url']+'" class="img-thumbnail">'],
+                                initialPreviewConfig: [{
+                                    caption: '图标',
+                                    url: '__URL__/deletePic',
+                                    extra: {
+                                        id: data['id']
+                                    },
+                                }],
+                            }).on("filebatchuploadsuccess", function (event, data, previewId, index) {
+                                var image_path = data.response.data.image_path;
+                                $('input[name="news_url"]').val(image_path);
+                            }).on('filepredelete', function(event, key, jqXHR, data){
+                                $.ajax({
+                                    type: "POST",
+                                    url: '__URL__/deletePicById',
+                                    data: data,
+                                    dataType:"json",
+                                    success: function(result) {
+                                        if (result.status == 1) {
+                                            $('input[name="news_url"]').val(null);
+                                        }
+                                    }
+                                });
+                            });
+                        }
+                    });
+                    form.render();
+                });
+            });
+
+            // 详情
+            $('#detail').on('click', function() {
+                getSelectedData(oTable, function(data){
+                    layui_detail('资讯预览', '__MODULE__/News/news_detail/id/'+data.id, ['60%','80%']);
+                })
+            })
+
+            // 提交
+            form.on('submit(submit)', function(data) {
+                if ($('#uploadImg').val()) {
+                    $('#uploadImg').fileinput('upload')
+                    .on("filebatchuploadsuccess", function(event, data) {
+                        if(data.response.status){
+                            submit_form("{:U('News/addNews')}");
+                        }
+                    });
+                } else {
+                    submit_form("{:U('News/addNews')}");
+                }
+            });
+        });
+
+        // 删除
+        $('#delete').on('click', function() {
+            getSelectedData(oTable, function(data){
+                var title = '确认删除资讯 "' + data['news_title'] + '" ?';
+                set_status(title, "{:U('Sys/setStatus')}", {
+                    id: data.id,
+                    status: {:C('STATUS_N')},
+                    table: "News"
+                });
+            });
+        });
+    </script>
+</block>

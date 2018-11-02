@@ -1,0 +1,238 @@
+<extend name="Public/base" />
+<block name="css">
+    <link rel="stylesheet" href="__STATICS__/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="__STATICS__/fileinput/css/fileinput.min.css">
+    <style type="text/css">
+        .edit-show{
+            display: none;
+        }
+        .layui-form-label{
+            width: 120px;
+            display: flex;
+            align-items: center;
+        }
+        .layui-input-block{
+            margin-left: 135px;
+        }
+        .layui-input[readonly],
+        .layui-textarea[readonly]{
+            border: none;
+        }
+        .layui-textarea{
+            resize: none;
+        }
+        .layui-form-item .ion, .layui-form-item .fa{
+            font-size: 20px;
+            margin-right: 15px;
+        }
+    </style>
+</block>
+<block name="header">公司 <small>信息</small></block>
+<block name="content">
+    <div class="box box-primary">
+        <div class="box-body" style="padding: 20px;">
+            <div class="col-sm-6">
+                <button type="button" class="btn btn-warning" id="edit"><i class="fa fa-edit fa-fw"></i>编辑</button>
+                <button type="button" class="btn btn-success edit-show" id="save"><i class="fa fa-save fa-fw"></i>保存</button>
+                <button type="button" class="btn btn-default edit-show" id="cancel"><i class="fa fa-reply fa-fw"></i>取消</button>
+                <hr class="layui-bg-cyan">
+                <form id="inputForm">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="ion ion-home"></i> 公司名称</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_name" value="{$company.company_name}" placeholder="请输入公司名称" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="ion ion-home"></i> 名称英文</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_name_en" value="{$company.company_name_en}" placeholder="请输入公司名称英文" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="ion ion-ios-location"></i> 公司地址</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_location" value="{$company.company_location}" placeholder="请输入公司地址" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="ion ion-ios-telephone"></i> 联系电话</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_tel" value="{$company.company_tel}" placeholder="请输入联系电话（多条空格隔开）" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa fa-fax"></i> 传真</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_fax" value="{$company.company_fax}" placeholder="请输入传真" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa fa-qq" style="font-size: 16px;"></i> QQ</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_qq" value="{$company.company_qq}" placeholder="请输入联系QQ" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa fa-user-plus" style="font-size: 16px;"></i> 联系人</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_contact" value="{$company.company_contact}" placeholder="请输入联系人" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa fa-copyright"></i> 版权</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_copyright" value="{$company.company_copyright}" placeholder="请输入版权" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa fa-drivers-license-o"></i> 备案</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <input type="text" name="company_record" value="{$company.company_record}" placeholder="请输入备案" autocomplete="off" class="layui-input" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa ion-ios-paper"></i> 公司简介</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <textarea name="company_brief" placeholder="请输入公司简介" class="layui-textarea" readonly>{$company.company_brief}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa ion-ios-paper"></i> 公司描述</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <textarea name="about" placeholder="请输入公司描述" class="layui-textarea" readonly>{$company.about}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label"><i class="fa ion-ios-paper"></i> 优势</label>
+                            <div class="layui-form-mid">-</div>
+                            <div class="layui-input-inline" style="width: 600px;">
+                                <textarea name="advantage" placeholder="请输入优势" class="layui-textarea" readonly>{$company.advantage}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <hr class="layui-bg-cyan">
+            </div>
+            <div class="col-sm-6">
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><i class="fa fa-image"></i> logo</label>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline" style="width: 80%;">
+                        <input type="file" name="img_logo" class="layui-input file-loading" id="uploadLogo">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label"><i class="fa fa-image"></i> 二维码</label>
+                    <div class="layui-form-mid">-</div>
+                    <div class="layui-input-inline" style="width: 80%;">
+                        <input type="file" name="img_wx" class="layui-input file-loading" id="uploadWx">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script src="__STATICS__/fileinput/js/fileinput.min.js"></script>
+    <script src="__STATICS__/fileinput/js/fileinput_locale_zh.js"></script>
+    <script type="text/javascript">
+        // 编辑
+        $('#edit').on('click', function(){
+            $(this).hide();
+            $('.layui-input').attr('readonly',false)
+            $('.layui-textarea').attr('readonly',false)
+            $('.edit-show').show();
+        });
+        // 保存
+        $('#save').on('click',function(){
+            formOptions.url = "{:U('Company/editCompany')}";
+            formOptions.success = function(responseText, statusText) {
+                if (responseText.status == 1) {
+                    toastr["success"]("编辑公司信息成功", "OK");
+                    setTimeout(function(){
+                        location.href = '__ACTION__';
+                    },500)
+                }
+            }
+            $('#inputForm').ajaxSubmit(formOptions);
+        })
+        // 取消
+        $('#cancel').on('click',function(){
+            $('#edit').show();
+            $('.layui-input').attr('readonly',true)
+            $('.layui-textarea').attr('readonly',true)
+            $('.edit-show').hide();
+        })
+
+        // 上传logo
+        $('#uploadLogo').fileinput({
+            language: 'zh',
+            uploadUrl: "{:U('Company/uploadLogo')}",
+            uploadAsync: false,
+            browseLabel: "选择",
+            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+            overwriteInitial: true,
+            initialPreview: '<img src="{$company.company_logo}" alt="" />',
+            initialPreviewAsData: true,
+            initialPreviewConfig: [
+                {
+                    'key': "1",
+                    'url': "{:U('Company/deleteLogo')}"
+                }
+            ]
+        })
+
+        // 上传微信二维码
+        $('#uploadWx').fileinput({
+            language: 'zh',
+            uploadUrl: "{:U('Company/uploadWx')}",
+            uploadAsync: false,
+            browseLabel: "选择",
+            browseIcon: "<i class=\"glyphicon glyphicon-picture\"></i> ",
+            overwriteInitial: true,
+            initialPreview: '<img src="{$company.company_wx_code}" alt="" />',
+            initialPreviewAsData: true,
+            initialPreviewConfig: [
+                {
+                    'key': "1",
+                    'url': "{:U('Company/deleteWx')}"
+                }
+            ]
+        })
+    </script>
+</block>

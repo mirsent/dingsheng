@@ -1,0 +1,874 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        a:hover{
+            text-decoration: none;
+        }
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 1.2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*内容区*/
+        /*标题横线*/
+        .line{
+            position: relative;
+            height: 2px;
+            background:#3966a8;
+            margin:50px auto 70px auto;
+            text-align: center;
+            z-index: 10;
+        }
+        .line-name-en{
+            position: relative;
+            display: inline-block;
+            margin: auto;
+            padding: 0 25px;
+            background: white;
+            color: #3966a8;
+            font-size: 1.6em;
+            top:-14px
+        }
+        .ling-name{
+            position: relative;
+            font-size: 1.4em;
+            top:-10px
+        }
+        .dian1{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            left: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        .dian2{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            right: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        /*标题横线结束*/
+        /*标题横线类型2*/
+        .line2{
+            position: relative;
+            height: 2px;
+            background:white;
+            margin:50px auto 70px auto;
+            text-align: center;
+            z-index: 10;
+        }
+        .line-name-en2{
+            position: relative;
+            display: inline-block;
+            margin: auto;
+            padding: 0 25px;
+            background:#3966a8;
+            color: white;
+            font-size: 1.6em;
+            top:-14px
+        }
+        .ling-name2{
+            position: relative;
+            font-size: 1.4em;
+            top:-10px;
+            color: white;
+        }
+        .dian3{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background:  #3966a8;
+            width: 7px;
+            height: 7px;
+            border:2px solid white;
+            border-radius: 100%;
+            left: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        .dian4{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background:#3966a8;
+            width: 7px;
+            height: 7px;
+            border:2px solid white;
+            border-radius: 100%;
+            right: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        /*标题横线类型2结束*/
+        /*行业动态*/
+        .industry_trend{
+            min-height: 340px;
+        }
+        .industry_trend .col-sm-6{
+        }
+        .trend-img{
+            height: 208px
+        }
+        .trend-first{
+            height: 39%;
+            padding: 0;
+        }
+        .date-color{
+            color: #daa438;
+        }
+        .trend-first-time{
+            padding: 10px 0;
+            font-size: 1.3em;
+        }
+        .trend-first-title{
+            font-size: 1.2em;
+            font-weight: 800;
+            padding-bottom: 15px;
+            color: black;
+        }
+        .trend-day{
+            font-size: 3.3em;
+            line-height: 1.1em;
+        }
+        .trend-month{
+
+         }
+        .trend-title{
+            font-weight: 800;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            color: black;
+        }
+        .trend-list{
+            display: flex;
+            min-height: 92px;
+            margin-bottom: 25px;
+
+        }
+        .trend-year{
+            position: absolute;
+            margin: auto;
+            /*top:0;*/
+            /*bottom: 0;*/
+        }
+        .trend-text{}
+        .trend-list .col-xs-1{
+            border-bottom: 1px solid #d8d8d8;
+        }
+        .trend-list .col-xs-11{
+            padding-left: 30px;
+            border-bottom: 1px solid #d8d8d8;
+        }
+        .trend-time{
+            position: relative;
+            padding: 0;
+        }
+        .trend-list:last-child .col-xs-1{
+            border-bottom:none
+        }
+        .trend-list:last-child .col-xs-11{
+            border-bottom:none
+        }
+        .industry_trend_right{
+            position: relative;
+        }
+        @media screen and (max-width: 1024px) and (min-width: 768px){
+            .trend-list{
+                width: 100%;
+                padding: 0;
+            }
+            .industry_trend_left{
+                margin-bottom: 20px;
+            }
+            .industry_trend_right{
+                margin: 15px 0;
+                width: 100%;
+                display: inline-block;
+            }
+        }
+        @media  screen and (max-width: 767px) {
+            .trend-list{
+                width: 100%;
+                padding: 0;
+                min-height: inherit;
+            }
+            .trend-title{
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+            .industry_trend_right{
+                margin: 15px 0;
+                width: 100%;
+                display: inline-block;
+            }
+            .trend-text{
+                padding-bottom: 10px;
+            }
+            .trend-list .col-xs-11{
+                padding-left: 15px;
+                width: 80%;
+            }
+            .trend-list .col-xs-1{
+                width: 20%;
+            }
+        }
+        .more{
+            position: absolute;
+            bottom: 0;
+            right: 35px;
+            color: #3966a8;
+            cursor:pointer;
+        }
+        /*行业动态结束*/
+        /*产品中心*/
+        .product_center{
+            margin-top: 85px;
+            height: 722px;
+        }
+        .product_center-top{
+            width: 100%;
+            height: 398px;
+            background: #3966a8;
+        }
+        .product_center-bottom{
+            width: 100%;
+            height: 324px;
+            background: #f9f9f9;
+        }
+        .swiper-container1 {
+            width: 100%;
+            height: 435px;
+            position: relative;
+        }
+        .swiper-slide2{
+            height: 435px;
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            /*display: -webkit-box;*/
+            /*display: -ms-flexbox;*/
+            /*display: -webkit-flex;*/
+            /*display: flex;*/
+            /*-webkit-box-pack: center;*/
+            /*-ms-flex-pack: center;*/
+            /*-webkit-justify-content: center;*/
+            /*justify-content: center;*/
+            /*-webkit-box-align: center;*/
+            /*-ms-flex-align: center;*/
+            /*-webkit-align-items: center;*/
+            /*align-items: center;*/
+        }
+        /*.swiper-pagination2{*/
+            /*bottom: -70px!important;*/
+        /*}*/
+        /*.swiper-pagination2 .swiper-pagination-bullet-active{*/
+            /*background:#3966a8!important;*/
+        /*}*/
+        /*.swiper-pagination2 .swiper-pagination-bullet{*/
+            /*background:#99afd0;*/
+            /*width: 13px!important;*/
+            /*height: 13px!important;*/
+        /*}*/
+        .product_text{
+            padding: 15px;
+            text-align: left;
+        }
+        .product-name{
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        .product-name a{
+            color: black;
+        }
+        .product-describe{
+            overflow: hidden;
+            font-size: 0.8em;
+            margin-top: 25px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+            overflow: hidden;
+        }
+        /*产品中心结束*/
+        /*关于我们*/
+        .aboutUs{
+            height: 415px;
+            margin: 60px auto 70px auto;
+        }
+        .aboutUs-img{
+            height: 415px;
+            position: relative;
+        }
+        .about-container{
+            width: 100%;
+            height: 100%;
+        }
+        .abt-img1{
+            width: 100%;
+            height: 415px;
+            position: absolute;
+            background-size: cover;
+            z-index: 1;
+        }
+        .abt-img2{
+            width: 80%;
+            height: 80%;
+            position: absolute;
+            left: -20%;
+            top: 10%;
+            background-size: cover;
+            /*transition: all 0.6s;*/
+        }
+        .about{
+            border-left: 7px solid #3966a8;
+            padding-left: 15px;
+            background: white;
+            display: inline-block;
+            padding-right: 20px;
+            position: relative;
+            top: -8px;
+        }
+        .about-title-en{
+            font-size: 1.6em;
+            line-height: 1em;
+            color:#3966a8;
+        }
+        .about-title{
+            font-size: 1.35em;
+            margin-top: 9px;
+            line-height: 1em;
+        }
+        .about-line{
+            height: 2px;
+            width: 100%;
+            background:#3966a8;
+            margin:8px auto 40px auto;
+        }
+        .dian5{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            right: -2px;
+            top: -30px;
+            bottom: 0;
+        }
+        .about-text{
+            margin-top:100px;
+            line-height: 1.6em;
+            font-size: 1.1em;
+        }
+        .about-more{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 121px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            font-size: 1.2em;
+            color: white;
+            background: #3966a8;
+        }
+        @media screen and (max-width: 1024px) and (min-width: 768px){
+            .aboutUs{
+                min-height: 415px;
+                height: auto;
+            }
+            .aboutUs-img{
+                margin-bottom: 40px;
+            }
+            .about-text{
+                margin-bottom: 40px;
+            }
+        }
+        @media screen and (max-width: 767px){
+            .aboutUs{
+                min-height: 415px;
+                height: auto;
+            }
+            .aboutUs-img{
+                margin-bottom: 40px;
+            }
+            .abt-img2{
+                display: none;
+            }
+            .aboutUs-img{
+                height: 200px;
+            }
+            .abt-img1{
+                position: relative;
+                height: 100%;
+            }
+            .about-text{
+                margin-bottom: 40px;
+            }
+        }
+        /*关于我们结束*/
+        /*我们的服务*/
+        .hexagon {
+            margin: auto;
+            width: 134px;
+            height: 80px;
+            background: #3966a8;
+            position: relative;
+            transition: all ease 1s;
+        }
+        .our-list:hover > .hexagon{
+            transform: rotateY(360deg);
+        }
+         .hexagon:before {
+             content: "";
+             position: absolute;
+             top: -41px;
+             left: 0;
+             width: 0;
+             height: 0;
+             border-left: 67px solid transparent;
+             border-right: 67px solid transparent;
+             border-bottom: 41px solid  #3966a8;
+         }
+        .hexagon:after {
+            content: "";
+            position: absolute;
+            bottom: -41px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 67px solid transparent;
+            border-right: 67px solid transparent;
+            border-top: 41px solid  #3966a8;
+        }
+        .our{
+            margin: 50px auto 100px auto;
+        }
+        .our-list{
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+            float: left;
+        }
+        .icon{
+            position: relative;
+            top: 12px;
+            width: 56px;
+            height: 56px;
+            margin: auto;
+            background: red;
+        }
+        .our-title{
+            margin-top: 60px;
+            font-size: 1.2em;
+            font-weight: 800;
+        }
+        .our-title-en{
+            font-size: 1em;
+        }
+        @media screen and (max-width:767px){
+            .our-list{
+                width: 50%;
+                margin-bottom: 50px;
+            }
+            .our-list:last-child{
+                width: 100%;
+            }
+        }
+        /*我们的服务结束*/
+        /*我们的优势*/
+        .advantage{
+            width: 100%;
+            background: url(__Home_IMG__/bottom1.jpg) no-repeat center center;
+            background-size: cover;
+            min-height:437px;
+            padding-top: 42px;
+        }
+        .advantage-img{
+            background: url(__Home_IMG__/bottom2.jpg) no-repeat center center;
+            background-size: cover;
+            height: 373px;
+        }
+        .advantage-line{
+            height: 2px;
+            width: 60%;
+            float: left;
+            background:white;
+            margin:8px auto 40px auto;
+        }
+        .our_advantage{
+            border-right: 7px solid white;
+            padding-left: 15px;
+            /*background: white;*/
+            display: inline-block;
+            padding-right: 5px;
+            position: absolute;
+            top: 0;
+            width:45%;
+            right: 0;
+        }
+        .advantage-title-en{
+            text-align: right;
+            width: 100%;
+            font-size: 1.35em;
+            line-height: 1em;
+            color:white;
+            float: right;
+            white-space: nowrap;
+        }
+        .advantage-title{
+            font-size: 1.35em;
+            margin-top: 9px;
+            line-height: 1em;
+            float: right;
+            color:white;
+        }
+        .dian6{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: #3966a8;
+            width: 7px;
+            height: 7px;
+            border:2px solid white;
+            border-radius: 100%;
+            left: 10%;
+            top: -27px;
+            bottom: 0;
+        }
+        .advantage-text{
+            color: white;
+            margin-top: 100px;
+            padding: 15px;
+            font-size: 1.1em;
+        }
+        @media screen and (max-width: 1024px)and (min-width: 768px){
+            .our_advantage{
+                width: 60%;
+            }
+            .advantage-line{
+                width: 40%;
+            }
+            .dian6{
+                left: 0;
+            }
+        }
+        @media screen and (max-width: 767px){
+            .advantage-img{
+                height: 200px;
+            }
+            .advantage-text{
+                margin-top: 10px;
+            }
+            .our_advantage{
+                margin-top: 20px;
+                float: none;
+                position: relative;
+                width: 100%;
+            }
+            .advantage-line{
+                display: none;
+            }
+            .dian6{
+                display: none;
+            }
+        }
+        /*我们的优势结束*/
+        /*内容区结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <foreach name="banner" item="v">
+                <div class="swiper-slide" style="background: url({$v.banner_url}) no-repeat center center;background-size: cover">
+                    <div class="container swiper-content">
+                        <div class="swiper-text">
+                            <div class="swiper-company">{:C('HOME_TITLE')}</div>
+                            <div class="swiper-company-en" style="padding-top: 15px">{:C('HOME_TITLE_EN')}</div>
+                            <div class="swiper-company-en">company</div>
+                        </div>
+                        <div class="swiper-describe">
+                            华北地区最大的硅油，二甲基硅油，进口硅油，乳化硅油，脱模剂，隔离剂经销公司
+                        </div>
+                    </div>
+                </div>
+            </foreach>
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+</block>
+<block name="content">
+    <div class="container">
+        <div class="line">
+            <div class="line-name-en"><span class="dian1"></span>INDUSTRY TREND<span class="dian2"></span></div>
+            <div class="ling-name">行业动态</div>
+        </div>
+    </div>
+
+    <div class="container industry_trend">
+        <div class="col-md-6 industry_trend_left">
+        </div>
+        <div class="col-md-6 industry_trend_right">
+            <a href="{:U('Index/news')}"><div class="more">more</div></a>
+        </div>
+    </div>
+
+    <div class="product_center">
+        <div class="product_center-top">
+            <div class="container">
+                <div class="line2">
+                    <div class="line-name-en2"><span class="dian3"></span>PRODUCT CENTER<span class="dian4"></span></div>
+                    <div class="ling-name2">产品中心</div>
+                </div>
+            </div>
+            <div class="container" style="overflow-x: hidden;height:506px;margin-top: 80px;position: relative;padding:0 35px;">
+                <div class="swiper-container1">
+                    <div class="swiper-wrapper">
+                        <volist name="proType" id="v">
+                            <div class="swiper-slide swiper-slide2">
+                                <a href="{:U('index/product')}?id={$v.id}"><div style="background: url({$v.product_type_url})no-repeat center center;background-size:cover;width: 100%;height: 226px"></div></a>
+                                <div class="product_text">
+                                    <div class="product-name"><a href="{:U('index/product')}?id={$v.id}">{$v.product_type_name}</a></div>
+                                    <div class="product-describe">{$v.product_type_brief}</div>
+                                </div>
+                            </div>
+                        </volist>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!--<div class="swiper-pagination swiper-pagination2"></div>-->
+                </div>
+                <div class="swiper-button-prev" style="left: 0;bottom:130px;top: auto;background: url(__Home_IMG__/next3.png)no-repeat left top"></div>
+                <div class="swiper-button-next" style="right: 0;bottom:130px;top: auto;background: url(__Home_IMG__/prev3.png)no-repeat right top"></div>
+            </div>
+        </div>
+        <div class="product_center-bottom"></div>
+    </div>
+
+    <div class="container aboutUs">
+        <div class="col-md-7 aboutUs-img">
+            <div class="about-container">
+                <div class="abt-img1 abt-img" data-id="1" style="background: url(__Home_IMG__/abt1.jpg) no-repeat center"></div>
+                <div class="abt-img2 abt-img amt" data-id="2" style="background: url(__Home_IMG__/abt2.png) no-repeat center"></div>
+            </div>
+        </div>
+        <div class="col-md-5" style="height: 100%">
+            <div class="about-line">
+                <div class="about">
+                    <span class="dian5"></span>
+                    <div class="about-title-en">ABOUT US</div>
+                    <div class="about-title">关于我们</div>
+                </div>
+            </div>
+            <div class="about-text">
+                {$company.about}
+            </div>
+            <a href="{:U('Index/aboutUs')}">
+                <div class="about-more">
+                了解更多
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="line">
+            <div class="line-name-en"><span class="dian1"></span>OUR SERVICE<span class="dian2"></span></div>
+            <div class="ling-name">我们的服务</div>
+        </div>
+    </div>
+
+    <div class="container our">
+        <div class="our-list"><div class="hexagon"><div class="icon" style="background: url(__Home_IMG__/icon.png) no-repeat -179px -3px"></div></div>
+            <div class="our-title">产品研发</div>
+            <div class="our-title-en">Product Daevelopment</div>
+        </div>
+        <div class="our-list"><div class="hexagon"><div class="icon" style="background: url(__Home_IMG__/icon.png) no-repeat -237px -3px"></div></div>
+            <div class="our-title">工艺优化</div>
+            <div class="our-title-en">Process Doptimization</div>
+        </div>
+        <div class="our-list"><div class="hexagon"><div class="icon" style="width:63px;background: url(__Home_IMG__/icon.png) no-repeat -296px -3px"></div></div>
+            <div class="our-title">批量生产</div>
+            <div class="our-title-en">Volume Production</div>
+        </div>
+        <div class="our-list"><div class="hexagon"><div class="icon" style="background: url(__Home_IMG__/icon.png) no-repeat -227px -83px"></div></div>
+            <div class="our-title">进出口食品</div>
+            <div class="our-title-en">Import And Export Food</div>
+        </div>
+        <div class="our-list"><div class="hexagon"><div class="icon" style="width:75px;background: url(__Home_IMG__/icon.png) no-repeat -292px -83px"></div></div>
+            <div class="our-title">科学管理</div>
+            <div class="our-title-en">Scientific Management</div>
+        </div>
+    </div>
+
+    <div class="advantage">
+        <div class="container">
+            <div class="col-sm-6 advantage-img">
+            </div>
+            <div class="col-sm-6" style="padding: 0">
+                <div class="advantage-line">
+                </div>
+                <div class="our_advantage">
+                    <span class="dian6"></span>
+                    <div class="advantage-title-en">OUR ADVANTAGES</div>
+                    <div class="advantage-title">我们的优势</div>
+                </div>
+                <div class="advantage-text">
+                    {$company.advantage}
+                </div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript">
+        $(window).ready(function(){
+            $.ajax({
+                url:"{:U('M/getNewsInfo')}",
+                dataType:"JSON",
+                type:"post",
+                data:{
+                    w:4
+                },success:function(data){
+                    console.log(data.data.data);
+                    $.each(data.data.data,function(i,v){
+                        var time = v.create_at.split(" ");
+                        var day = time[0].split("-");
+                        if(i == 0){
+                            var a = '<a href={:U("Index/newsDetails")}?id='+ v.id +'><div class="col-xs-12 trend-img" style="background: url('+ v.news_url +') no-repeat center center;background-size: cover"></div></a> <div class="col-xs-12 trend-first"> <div class="date-color trend-first-time">'+ day[0] +'/'+ day[1] +'/'+ day[2] +'</div><a href={:U("Index/newsDetails")}?id='+ v.id +'><div class="trend-first-title">'+ v.news_title +'</div></a><div class="trend-first-text">'+ v.news_brief +'</div></div>';
+                            $(".industry_trend_left").append(a);
+                        }else {
+                            var p = v.news_brief.substring(0,50)+"...";
+                            var a = '<div class="col-xs-12 trend-list"><div class="col-xs-1 text-left trend-time"><div class="trend-year"><div class="trend-day date-color">'+ day[2] +'</div><div class="trend-month date-color">'+ day[0] +'/'+ day[1] +'</div></div></div><div class="col-xs-11"><a href={:U("Index/newsDetails")}?id='+ v.id +'><div class="trend-title">'+ v.news_title +'</div></a><div class="trend-text">'+ p +'</div></div></div>';
+                            $(".industry_trend_right").append(a);
+                        }
+                    })
+                }
+            });
+        })
+        var windowWidth = $(window).width();
+        var mySwiper = new Swiper('.swiper-container',{
+            autoplay: {
+                delay: 3000,//1秒切换一次
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable :true,
+            },
+        })
+        swiper();
+        function swiper() {
+            if(windowWidth>1024){
+                var swiper = new Swiper('.swiper-container1', {
+                    slidesPerView:4,
+                    spaceBetween: 40,
+                    loop : true,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+                amt();
+            }else if(windowWidth>767 && windowWidth<=1024){
+                var swiper = new Swiper('.swiper-container1', {
+                    slidesPerView:2,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+                amt();
+            }else if(windowWidth <= 767){
+                var swiper = new Swiper('.swiper-container1', {
+                    slidesPerView:1,
+                    spaceBetween: 30,
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                });
+            }
+        }
+        window.onresize=function(){
+            windowWidth = $(window).width();
+            swiper();
+        }
+
+        function amt(){
+            var time = setInterval(function(){
+                    $(".abt-img[data-id=2]").css("z-index","2");
+                    $(".abt-img[data-id=2]").stop().animate({
+                        width:'100%',
+                        height:'100%',
+                        left:'15px',
+                        top:"0%",
+                    });
+                    $(".abt-img[data-id=1]").stop().animate({
+                        width:'80%',
+                        height:'80%',
+                        left:'-20%',
+                        top:"10%"
+                    });
+                    $(".abt-img[data-id=1]").css("z-index",0);
+                    $(".abt-img[data-id=1]").attr("data-id",2);
+                    $(".amt").attr("data-id","1");
+                    $(".abt-img[data-id=1]").removeClass("amt");
+                    $(".abt-img[data-id=2]").addClass("amt");
+            },5000);
+        }
+
+    </script>
+</block>

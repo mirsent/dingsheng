@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>{:C('HOME_TITLE')}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="__Home_JS__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="__Home_JS__/swiper-4.1.6/css/swiper.min.css" rel="stylesheet">
+    <style>
+        body{
+            font-family: "微软雅黑";
+        }
+        .navbar{
+            width: 100%;
+            position: absolute;
+            z-index: 10;
+        }
+        .header{
+            height:487px;
+            padding: 0;
+        }
+        .swiper-container{
+            height: 100%;
+        }
+        .swiper-slide{
+            width: 100%;
+            height: 100%;
+        }
+        .navbar-default{
+            background: none;
+            border: none;
+            color: white;
+        }
+        .logo{
+            display: none;
+        }
+        .navbar-nav>li{
+            width:86px;
+            height: 50px;
+            text-align: center;
+        }
+        .navbar-default .navbar-nav>li>a{
+            display: inline-block;
+            margin: 15px auto 5px auto;
+            color: white;
+            padding: 0;
+            transition: all ease 0.5s;
+            font-size: 1.1em;
+        }
+        .navbar-default .navbar-nav>li>a:focus{
+            color: white;
+        }
+        .navbar-default .navbar-nav>li>span{
+            transition: all ease 1s;
+            display: none;
+        }
+        @media  screen and (max-width: 767px) {
+            .header{
+                height:300px;
+                padding: 0;
+            }
+            .swiper-text{
+                bottom: 120px;
+            }
+            .swiper-describe{
+                bottom: 40px;
+            }
+        }
+        @media screen and (min-width: 768px){
+            .navbar-default .navbar-nav>li:hover>a{
+                padding-bottom: 10px;
+                border-bottom: 1px solid white;
+                color: white;
+            }
+            .navbar-default .navbar-nav>li:hover>span{
+                display: block;
+            }
+            .logo{
+                display: block;
+            }
+        }
+        .footer{
+            display: table;
+            background: black;
+            height: 200px;
+            width: 100%;
+        }
+        .footer-text{
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+            text-align: center;
+        }
+        .fl-left{
+            float: left;
+        }
+        .fl-right{
+            float: right;
+        }
+    </style>
+    <block name="css"></block>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="logo" src="__Home_IMG__/logo.png" style="position: absolute">
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <foreach name="nav" item="v">
+                        <li><a href="/index.php/Home/index/{$v.jump_url}">{$v.nav_name}</a></li>
+                    </foreach>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container-fluid header">
+        <block name="header"></block>
+    </div>
+    <block name="content"></block>
+    <div class="footer container-fluid">
+        <div class="footer-text">
+            {$company.company_copyright}<br>
+            公司地址 :{$company.company_location}
+        </div>
+    </div>
+    <script type="text/javascript" src="__Home_JS__/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="__Home_JS__/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="__Home_JS__/swiper-4.1.6/js/swiper.min.js"></script>
+    <block name="js"></block>
+</body>
+</html>

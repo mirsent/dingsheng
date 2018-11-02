@@ -1,0 +1,256 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*标题横线*/
+        .line{
+            position: relative;
+            height: 2px;
+            background:#3966a8;
+            margin:50px auto 70px auto;
+            text-align: center;
+            z-index: 10;
+        }
+        .line-name-en{
+            position: relative;
+            display: inline-block;
+            margin: auto;
+            padding: 0 25px;
+            background: white;
+            color: #3966a8;
+            font-size: 1.6em;
+            top:-14px
+        }
+        .ling-name{
+            position: relative;
+            font-size: 1.4em;
+            top:-10px
+        }
+        .dian1{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            left: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        .dian2{
+            display: inline-block;
+            position: absolute;
+            margin: auto;
+            background: white;
+            width: 7px;
+            height: 7px;
+            border:2px solid #3966a8;
+            border-radius: 100%;
+            right: -2px;
+            top: 0;
+            bottom: 0;
+        }
+        /*标题横线结束*/
+        /*面包屑导航*/
+        .crumbs{
+            height: 43px;
+            line-height: 80px;
+            color: #333;
+        }
+        .crumbs>a{
+            color: #333;
+        }
+        .crumbs>a:hover{
+            text-decoration: none;
+            color: #333;
+        }
+        /*面包屑导航结束*/
+        /*内容区*/
+        .contact-img{
+            height: 426px;
+            background: url(__Home_IMG__/contactUs.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        .company-address{
+            margin:83px auto 0 auto;
+            font-size:1.1em;
+        }
+        .company>ul>li{
+            line-height: 40px;
+        }
+        .company-address>span{
+            font-weight: 800;
+        }
+        .address-icon{
+            position: relative;
+            /*bottom: -10px;*/
+            width: 39px;
+            height: 36px;
+            display: inline-block;
+            background: url(__Home_IMG__/icon.png) no-repeat -103px -93px;
+        }
+        .phone-icon{
+            width: 39px;
+            height: 35px;
+            display: inline-block;
+            background: url(__Home_IMG__/icon.png) no-repeat -144px -94px;
+        }
+        .qq-icon{
+            width: 39px;
+            height: 35px;
+            display: inline-block;
+            background: url(__Home_IMG__/icon.png) no-repeat -189px -94px;
+        }
+        .company-qq>span{
+            font-weight: 800;
+        }
+        .company{
+            padding: 0;
+        }
+        .company>ul{
+            padding: 0;
+            list-style: none;
+            height: 40px;
+        }
+        .company>ul>li{
+            margin-bottom: 40px;
+            float: left;
+            height: 40px;
+            line-height: 40px;
+            font-size: 15.4px;
+        }
+        @media screen and (max-width:767px){
+            .contact-img{
+                height: 200px;
+            }
+            .company-address{
+                margin-top: 20px;
+            }
+            .company>ul>li{
+                margin-bottom: 10px;
+            }
+            .phone-list{
+                width: 100%;
+                top: 0;
+                line-height:normal!important;
+            }
+        }
+        #map{
+            width: 100%;
+            height: 432px;
+            margin-bottom: 134px;
+        }
+
+        /*内容区结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: url(__Home_IMG__/banner5.jpg) no-repeat center center;background-size: cover">
+                <div class="container swiper-content">
+                    <div class="swiper-text">
+                        <div class="swiper-company">联系我们</div>
+                        <div class="swiper-company-en" style="padding-top: 15px">Contact Us</div>
+                    </div>
+                    <div class="swiper-describe">
+                        科技立业，诚信为本，以质量赢天下，以高目标、高科技、高品质、高效益为发展宗旨
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</block>
+<block name="content">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="crumbs"><a href="{:U('index/index')}">首页</a> > <a href="javascript:void(0)">联系我们</a></div>
+    </div>
+    <div class="container" style="margin-bottom: 50px">
+        <div class="col-md-7 contact-img"></div>
+        <div class="col-md-5">
+            <div class="col-xs-12 company company-address">
+                <ul>
+                    <li><span class="address-icon"></span></li>
+                    <li><span>　公司地址：{$company.company_location}</span></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 company">
+                <ul>
+                    <li><span class="phone-icon"></span></li>
+                    <li><span>　联系电话：{$company.company_tel}</span></li>
+                </ul>
+            </div>
+            <div class="col-xs-12 company">
+                <ul>
+                    <li><span class="qq-icon"></span></li>
+                    <li><span>　联系QQ：{$company.company_qq}@qq.com</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="line">
+            <div class="line-name-en"><span class="dian1"></span>地理位置<span class="dian2"></span></div>
+            <div class="ling-name">POSITION</div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="map"></div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=82bmXZWmPv4KDeSIdlB2HU4OIl8v6rTd"></script>
+    <script type="text/javascript">
+        // 百度地图API功能
+        var map = new BMap.Map("map");    // 创建Map实例
+        map.centerAndZoom("{$company.company_location}",18);
+        //添加地图类型控件
+        map.addControl(new BMap.MapTypeControl({
+            mapTypes:[
+                BMAP_NORMAL_MAP,
+                BMAP_HYBRID_MAP
+            ]}));
+        map.setCurrentCity("天津");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+    </script>
+</block>

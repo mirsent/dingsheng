@@ -1,0 +1,323 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        a:hover{text-decoration: none}
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*面包屑导航*/
+        .crumbs{
+            height: 43px;
+            line-height: 80px;
+            color: #333;
+        }
+        .crumbs>a{
+            color: #333;
+        }
+        .crumbs>a:hover{
+            text-decoration: none;
+            color: #333;
+        }
+        /*面包屑导航结束*/
+        /*内容区*/
+        .first-news{
+            width: 100%;
+            margin-bottom: 23px;
+            display: inline-block;
+        }
+        .first-img{
+            height: 240px;
+            background-size: cover;
+        }
+        .first-news-title{
+            color: black;
+            border-left: 5px solid #3966a8;
+            font-size: 1.2em;
+            font-weight: 800;
+            padding-left: 10px;
+            margin-top: 10px;
+        }
+        .first-news-text{
+            margin-top: 32px;
+            padding-left: 20px;
+            font-size: 1em;
+        }
+        .first-news-btn{
+            position: absolute;
+            bottom: 0;
+            width: 90px;
+            height: 28px;
+            line-height: 28px;
+            color: white;
+            text-align: center;
+            background:#3966a8;
+            border-radius:5px;
+            margin-left: 5px;
+            right: 0;
+        }
+        .first-text{
+            height: 240px;
+        }
+        .first-news-time{
+            position: absolute;
+            right: 0;
+            top: 17px;
+            /*bottom: 0;*/
+        }
+        .first-news-time>span{
+            color: #3966a8
+        }
+        .news-list{
+            position: relative;
+            width: 100%;
+            height: 163px;
+        }
+        .news-list:hover{
+            background: #eeeeee;
+        }
+        .news-list:hover .del{
+            transform: rotate(90deg);
+        }
+        .news-title{
+            font-size: 1.4em;
+            font-weight: 800;
+            padding: 36px 0 21px 0;
+            color: black;
+        }
+        .news-title>a{
+            color: #333;
+        }
+        .news-title>a:hover{
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .news-more{
+            position: relative;
+            top: 10px;
+            float: right;
+            color: #3966a8;
+            font-weight: 500;
+            font-size: 0.7em;
+        }
+        .del{
+            display: inline-block;
+            position: relative;
+            top:-2px;
+            height: 10px;
+            width: 3px;
+            background:#3966a8;
+            margin:0 7px 0 5px;
+            transition: all ease 0.5s;
+        }
+        .news-text{
+            padding-left: 20px;
+            color: black;
+        }
+        @media screen and (max-width: 767px) {
+            .first-news-text{
+                font-size: 0.9em;
+            }
+            .news-list{
+                height: auto;
+                padding-bottom: 50px;
+            }
+            .news-more{
+                display: none;
+            }
+            .news-title{
+                padding: 10px 0 20px 0;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+        /*内容区结束*/
+        /*分页*/
+        .page_div {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-family: "microsoft yahei";
+            color: #666666;
+            margin-right: 10px;
+            padding-left: 20px;
+            box-sizing: border-box;
+            float: right;
+        }
+        /*
+         * 页数按钮样式
+         */
+
+        .page_div a {
+            min-width: 30px;
+            height: 28px;
+            border: 1px solid #dce0e0!important;
+            text-align: center;
+            margin: 0 4px;
+            cursor: pointer;
+            line-height: 28px;
+            color: #666666;
+            font-size: 13px;
+            display: inline-block;
+        }
+
+        #firstPage,
+        #lastPage {
+            width: 50px;
+            color: #666;
+            border: 1px solid #666;!important;
+            transition:all ease 0.5s;
+        }
+        #firstPage:hover,
+        #lastPage:hover {
+            background: #3966a8;
+            color: white;
+        }
+        #prePage,
+        #nextPage {
+            width: 70px;
+            color: #666;
+            border: 1px solid #666;!important;
+            transition:all ease 0.5s;
+        }
+        #prePage:hover,
+        #nextPage:hover{
+            background: #3966a8;
+            color: white;
+        }
+        .page_div .current {
+            background-color: #3966a8;
+            border-color: #3966a8;
+            color: #FFFFFF;
+        }
+        .totalPages {
+            margin: 0 10px;
+        }
+
+        .totalPages span,
+        .totalSize span {
+            color: #666;
+            margin: 0 5px;
+        }
+        .totalSize{
+            display: none;
+        }
+        .totalPages{
+            display: none;
+        }
+        @media screen and (max-width: 767px){
+            #firstPage,
+            #lastPage{
+                display: none;
+            }
+            .container-page{
+                width: 100%;
+                padding: 0;
+            }
+        }
+        /*分页结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: url(__Home_IMG__/banner6.jpg) no-repeat center center;background-size: cover">
+                <div class="container swiper-content">
+                    <div class="swiper-text">
+                        <div class="swiper-company">行业动态</div>
+                        <div class="swiper-company-en" style="padding-top: 15px">News</div>
+                    </div>
+                    <div class="swiper-describe">
+                        科技立业，诚信为本，以质量赢天下，以高目标、高科技、高品质、高效益为发展宗旨
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</block>
+<block name="content">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="crumbs"><a href="{:U('index/index')}">首页</a> > <a href="javascript:void(0)">行业动态</a></div>
+    </div>
+    <div class="container">
+        <foreach name="list['data']" item="v" key="k">
+            <switch name="k">
+                <case value="0">
+                    <div class="first-news">
+                        <div class="col-sm-4 first-img" style="background: url({$v.news_url});background-size: 100% 100%;">
+                        </div>
+                        <div class="col-sm-8 first-text">
+                            <a href="/index.php/Home/index/newsDetails/id/{$v.id}"> <div class="first-news-title">{$v.news_title}</div></a>
+                            <div class="first-news-text">
+                                {$v.news_brief}
+                            </div>
+                            <a href="/index.php/Home/index/newsDetails/id/{$v.id}"><div class="first-news-btn">阅读详情</div></a>
+                            <div class="first-news-time"><span><?php $time = $v[create_at]; echo(date("Y/m/d",strtotime($time))); ?></span></div>
+                        </div>
+                    </div>
+                </case>
+                <default />
+                <a href="/index.php/Home/index/newsDetails/id/{$v.id}">
+                <div class="news-list">
+                     <div class="news-title"><span class="del"></span>{$v.news_title}<span class="news-more"><span><?php $time = $v[create_at]; echo(date("Y/m/d",strtotime($time))); ?></span></span></div>
+                        <div class="news-text">
+                            {$v.news_brief}
+                        </div>
+                    </div>
+                </a>
+            </switch>
+        </foreach>
+    </div>
+    <div class="container">
+        <div id="page" class="page_div"></div>
+    </div>
+</block>
+<block name="js">
+    <script type="text/javascript" src="__Home_JS__/paging.js"></script>
+    <script type="text/javascript">
+        $("#page").paging({
+            pageNo:parseInt("{$page}"),
+            totalPage: parseInt("{$list['total']}"),
+            totalSize: parseInt("{$limit}"),
+            callback: function(num) {
+                window.location.href="/heyday/index.php/Home/index/news/p/"+ num +"";
+            }
+        })
+    </script>
+</block>

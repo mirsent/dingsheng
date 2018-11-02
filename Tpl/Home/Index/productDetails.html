@@ -1,0 +1,238 @@
+<extend name="index/inherit" />
+<block name="css">
+    <style>
+        /*header样式修改*/
+        .swiper-pagination-bullet-active{
+            background: white!important;
+        }
+        .swiper-pagination-bullet{
+            /*background: #6c7581;*/
+        }
+        .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+            margin: 0 6px;
+        }
+        .swiper-text{
+            color: white;
+            border-left:5px solid white;
+            padding-left: 15px;
+            position: absolute;
+            bottom: 157px;
+        }
+        .swiper-company{
+            font-size: 2.8em;
+            line-height: 1em;
+            font-weight: 800;
+        }
+        .swiper-company-en{
+            font-size: 2em;
+            line-height: 1em;
+        }
+        .swiper-describe{
+            position: absolute;
+            bottom:10px;
+            left: 25px;
+            color: white;
+            font-size: 1em;
+        }
+        .swiper-content{
+            height: 100%;
+            position: relative;
+        }
+        /*header样式结束*/
+        /*面包屑导航*/
+        .crumbs{
+            height: 43px;
+            line-height: 80px;
+            color: #333;
+        }
+        .crumbs>a{
+            color: #333;
+        }
+        .crumbs>a:hover{
+            text-decoration: none;
+            color: #333;
+        }
+        /*面包屑导航结束*/
+        /*内容区*/
+        .product-img{
+            height: 315px;
+        }
+        .product-box{
+            height: 315px;
+            background:#f7f7f7;
+        }
+        .product-details{
+            margin-bottom: 40px;
+        }
+        .product-title{
+            font-size: 1.5em;
+            margin-top: 37px;
+            line-height: 1em;
+            font-weight: 800;
+            border-left: 5px solid #3966a8;
+            color: #3966a8;;
+            padding-left: 15px;
+        }
+        .product-title-en{
+            color:#daa438;
+            font-size: 1.1em;
+            padding-left: 15px;
+        }
+        .product-text{
+            color: #666666;
+            margin-top:20px;
+        }
+        .field-title{
+            font-size: 1.5em;
+            margin-top: 37px;
+            line-height: 1em;
+            font-weight: 800;
+            border-left: 5px solid #3966a8;
+            color: #3966a8;;
+            padding-left: 15px;
+        }
+        .field-text{
+            padding-top: 20px;
+            padding-bottom: 30px;
+            border-bottom: 1px dashed #ccc;
+        }
+        .recommend-title{
+            font-size: 1.5em;
+            margin: 37px 0 40px 0;
+            line-height: 1em;
+            font-weight: 800;
+            border-left: 5px solid #3966a8;
+            color: #3966a8;;
+            padding-left: 15px;
+        }
+        .recommend-box{
+            width: 100%;
+            padding-bottom: 30px;
+        }
+        .recommend-list{
+            height: 468px;
+            background: #f7f7f7;
+        }
+        .recommend-img{
+            width: 100%;
+            height: 250px;
+            background-size: cover!important;
+        }
+        .recommend-content{
+            width: 100%;
+            margin-top: 18px;
+            height: 200px;
+            position: relative;
+        }
+        .content-title{
+            margin: 0 0 0 6px;
+            padding-left: 8px;
+            border-left:3px solid #3966a8;
+            color: #3966a8;
+            font-weight: 800;
+            font-size:1.2em;
+            line-height: 1.1em;
+            padding-bottom: 1px;
+        }
+        .content-title-en{
+            color: #daa438;
+            padding-left:16px;
+            margin-bottom: 15px;
+            margin-top: 2px;
+        }
+        .content-text{
+            padding:10px;
+        }
+
+        .content-btn{
+            height: 23px;
+            width: 85px;
+            color: white;
+            background:#3966a8;
+            text-align: center;
+            line-height: 23px;
+            font-size: 0.8em;
+            border-radius: 1px;
+            position: absolute;
+            bottom: 11px;
+            right: 15px;
+            transition: all ease 0.3s;
+        }
+        .content-btn:hover{
+            background: white;
+            border: 1px solid #3966a8;
+            color:#3966a8;
+        }
+        /*内容区结束*/
+    </style>
+</block>
+<block name="header">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide" style="background: url(__Home_IMG__/banner7.jpg) no-repeat center center;background-size: cover">
+                <div class="container swiper-content">
+                    <div class="swiper-text">
+                        <div class="swiper-company">产品中心</div>
+                        <div class="swiper-company-en" style="padding-top: 15px">Product</div>
+                    </div>
+                    <div class="swiper-describe">
+                        科技立业，诚信为本，以质量赢天下，以高目标、高科技、高品质、高效益为发展宗旨
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="swiper-pagination"></div>-->
+    </div>
+</block>
+<block name="content">
+    <div class="container" style="margin-bottom: 50px">
+        <div class="crumbs"><a href="{:U('index/index')}">首页</a> > <a href="{:U('index/product')}">产品中心</a> > <a href="javascript:void(0)">产品详情</a></div>
+    </div>
+    <div class="container product-details">
+        <div class="col-sm-5 product-img" style="background: url({$data.product_url}) no-repeat center center;background-size: cover"></div>
+        <div class="col-sm-7 product-box">
+            <div class="product-title">{$data.product_title}</div>
+            <div class="product-title-en">{$data.product_en_title}</div>
+            <div class="product-text">
+                {$data.product_brief}
+            </div>
+        </div>
+    </div>
+    <div class="container field">
+        <div class="field-title">应用领域</div>
+        <div class="col-xs-12 field-text">
+            {$data.product_detail}
+        </div>
+    </div>
+    <div class="container recommend">
+        <div class=" recommend-title">相关推荐</div>
+        <div class="recommend-box">
+            <div class="row">
+            </div>
+        </div>
+    </div>
+</block>
+<block name="js">
+    <script>
+        $(window).ready(function(){
+            $.ajax({
+                url:"{:U('M/getProductInfo')}",
+                dataType:"json",
+                Type:'post',
+                data:{
+                    t:"{$data.product_type_id}"
+                },success:function(data){
+//                    $(".product-li").remove();
+                    var list = data.data.data;
+                    $.each(list,function(i,v){
+                        var p =  v.product_brief.substring(0,70)+"...";
+//                        console.log(p)
+                        var a = '<div class="col-sm-6 col-md-3" style="margin-bottom: 10px"><div class="recommend-list"> <div class="recommend-img" style="background: url('+ v.product_url +') no-repeat center center;"></div> <div class="recommend-content"> <div class="content-title">'+ v.product_title +'</div> <div class="content-title-en">'+ v.product_en_title +'</div> <div class="content-text">'+ p +'</div><a href={:U("index/productDetails")}?id='+ v.id +'><div class="content-btn">了解详情</div></a></div></div></div>';
+                        $(".recommend-box .row").append(a);
+                    })
+//                    console.log(list);
+                }
+            })
+        })
+    </script>
+</block>
