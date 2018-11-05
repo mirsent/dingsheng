@@ -202,7 +202,7 @@ class CompanyController extends AdminBaseController{
         $limit = I('limit');  // 每页显示条数
         $page = I('page');    // 第几页
 
-        $infos = $ms->page($page, $limit)->where($cond)->select();
+        $infos = $ms->page($page, $limit)->where(array_filter($cond))->select();
 
         echo json_encode(array(
             "draw" => intval(I('draw')),

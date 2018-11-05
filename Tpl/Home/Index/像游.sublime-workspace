@@ -1,0 +1,677 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cons",
+				"console.log"
+			],
+			[
+				"cre",
+				"create_at"
+			],
+			[
+				"unit",
+				"unit_price\t(order.html)"
+			],
+			[
+				"compa",
+				"compact"
+			],
+			[
+				"sta",
+				"standard"
+			],
+			[
+				"html",
+				"htmlspecialchars_decode"
+			],
+			[
+				"com",
+				"company_wx_code"
+			],
+			[
+				"member_d",
+				"member_ids"
+			],
+			[
+				"rand",
+				"rand_number〔function〕"
+			],
+			[
+				"key",
+				"keyGen〔function〕"
+			],
+			[
+				"number",
+				"number_complete"
+			],
+			[
+				"num",
+				"numberAll"
+			],
+			[
+				"mem",
+				"member"
+			],
+			[
+				"cla",
+				"class〔keyword〕"
+			],
+			[
+				"wh",
+				"where"
+			],
+			[
+				"ajax_r",
+				"ajax_return〔function〕"
+			],
+			[
+				"founder",
+				"founder_id"
+			],
+			[
+				"name",
+				"namespace〔keyword〕"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/E/xampp/htdocs/SameGame/Application/Common/Conf/db.php",
+			"settings":
+			{
+				"buffer_size": 239,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"livereload",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"LiveReload: Enable/disable plugins",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"live",
+				"LiveReload: Help"
+			],
+			[
+				"markdown",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"pull",
+				"Git: Pull"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add All"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"gitadd",
+				"Git: Add All"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"packagere",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"box",
+				"Boxy Theme: Configuration"
+			],
+			[
+				"ma",
+				"Material Theme: Activate theme"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 208.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/E/xampp/htdocs/SameGame",
+		"/E/xampp/htdocs/SameGame/Application",
+		"/E/xampp/htdocs/SameGame/Application/Common",
+		"/E/xampp/htdocs/SameGame/Application/Common/Conf",
+		"/E/xampp/htdocs/SameGame/Application/Home",
+		"/E/xampp/htdocs/SameGame/Application/Home/Controller"
+	],
+	"file_history":
+	[
+		"/E/xampp/htdocs/DingSheng/Tpl/Home/Index/inherit.html",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Conf/webconfig.php",
+		"/E/xampp/htdocs/DingSheng/Application/Admin/Controller/CompanyController.class.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Company/order.html",
+		"/E/xampp/htdocs/DingSheng/Application/Admin/Controller/ProductController.class.php",
+		"/E/xampp/htdocs/WX/Application/Common/Common/function.php",
+		"/E/xampp/htdocs/THAdminPro/Application/Common/Common/function.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Company/demand.html",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Model/DemandModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Model/BaseModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Application/Admin/Controller/SysController.class.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/News/news_list.html",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Product/product_type.html",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Product/unit.html",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Product/origin.html",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Product/standard.html",
+		"/E/xampp/htdocs/DingSheng/Application/Admin/Controller/OriginModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Model/UnitModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Model/OriginModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Model/StandardModel.class.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Company/bill.html",
+		"/E/xampp/htdocs/WX/Application/Common/Conf/db.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Company/about.html",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Common/function.php",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Banner/banner.html",
+		"/E/xampp/htdocs/DingSheng/Tpl/Admin/Public/base.html",
+		"/E/xampp/htdocs/DingSheng/Application/Common/Conf/db.php",
+		"/E/xampp/htdocs/SameGame/Application/Home/Controller/TaskController.class.php",
+		"/E/xampp/htdocs/SameGame/Application/Common/Conf/web_config.php",
+		"/E/xampp/htdocs/SameGame/Application/Common/Model/TeamModel.class.php",
+		"/E/xampp/htdocs/SameGame/Application/Home/Controller/TeamController.class.php",
+		"/C/Users/mirse/.ssh/id_rsa.pub",
+		"/E/XAMPP/htdocs/SameGame/Application/Home/Controller/TaskController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Admin/Controller/TaskController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Conf/web_config.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Model/MemberModel.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Home/Controller/MemberController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Model/TaskModel.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Conf/db.php",
+		"/E/Sublime Text 3/Data/Packages/Alignment/Default (Windows).sublime-keymap",
+		"/E/Sublime Text 3/Data/Packages/User/Add Comma End.sublime-macro",
+		"/E/XAMPP/htdocs/SameGame/Application/Home/Controller/LoginController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Model/LogModel.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Home/Controller/ProjectController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Model/TeamModel.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Home/Controller/TeamController.class.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Common/function.php",
+		"/E/XAMPP/htdocs/SameGame/Application/Common/Model/BaseModel.class.php",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme/Preferences.sublime-settings",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme/Boxy Tomorrow.sublime-theme",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme Addon - Unified Mode/Widget - Boxy Yesterday.sublime-settings",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme Addon - Mono File Icons/Boxy Tomorrow.sublime-theme",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme Addon - Font Face/Boxy Tomorrow.sublime-theme",
+		"/E/Sublime Text 3/Data/Packages/Boxy Theme Addon - Mono File Icons/package-metadata.json"
+	],
+	"find":
+	{
+		"height": 31.0
+	},
+	"find_in_files":
+	{
+		"height": 135.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/E/xampp/htdocs/SameGame/Application/Common/Conf/db.php",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 239,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								239,
+								239
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 47.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 178.0
+	},
+	"pinned_build_system": "",
+	"project": "像游.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"web",
+				"Application\\Common\\Conf\\webconfig.php"
+			],
+			[
+				"procon",
+				"Application\\Admin\\Controller\\ProductController.class.php"
+			],
+			[
+				"compcon",
+				"Application\\Admin\\Controller\\CompanyController.class.php"
+			],
+			[
+				"func",
+				"Application\\Common\\Common\\function.php"
+			],
+			[
+				"ding",
+				"Application\\Home\\Controller\\DingShengController.class.php"
+			],
+			[
+				"abo",
+				"Tpl\\Admin\\Company\\about.html"
+			],
+			[
+				"bi",
+				"Tpl\\Admin\\Company\\bill.html"
+			],
+			[
+				"basemo",
+				"Application\\Common\\Model\\BaseModel.class.php"
+			],
+			[
+				"syscon",
+				"Application\\Admin\\Controller\\SysController.class.php"
+			],
+			[
+				"comcon",
+				"Application\\Admin\\Controller\\CompanyController.class.php"
+			],
+			[
+				"newsli",
+				"Tpl\\Admin\\News\\news_list.html"
+			],
+			[
+				"com",
+				"Application\\Admin\\Controller\\CompanyController.class.php"
+			],
+			[
+				"db",
+				"Application\\Common\\Conf\\db.php"
+			],
+			[
+				"compancon",
+				"Application\\Admin\\Controller\\CompanyController.class.php"
+			],
+			[
+				"banner",
+				"Tpl\\Admin\\Banner\\banner.html"
+			],
+			[
+				"base",
+				"Tpl\\Admin\\Public\\base.html"
+			],
+			[
+				"about",
+				"Tpl\\Admin\\Company\\about.html"
+			],
+			[
+				"db.",
+				"Application\\Common\\Conf\\db.php"
+			],
+			[
+				"logincon",
+				"Application\\Home\\Controller\\LoginController.class.php"
+			],
+			[
+				"teammo",
+				"Application\\Common\\Model\\TeamModel.class.php"
+			],
+			[
+				"teammodel",
+				"Application\\Common\\Model\\TeamModel.class.php"
+			],
+			[
+				"teamcon",
+				"Application\\Home\\Controller\\TeamController.class.php"
+			],
+			[
+				"webco",
+				"Application\\Common\\Conf\\web_config.php"
+			],
+			[
+				"task",
+				"Application\\Home\\Controller\\TaskController.class.php"
+			],
+			[
+				"taskcon",
+				"Application\\Home\\Controller\\TaskController.class.php"
+			],
+			[
+				"membmo",
+				"Application\\Common\\Model\\MemberModel.class.php"
+			],
+			[
+				"webcon",
+				"Application\\Common\\Conf\\web_config.php"
+			],
+			[
+				"taskmo",
+				"Application\\Common\\Model\\TaskModel.class.php"
+			],
+			[
+				"projecon",
+				"Application\\Home\\Controller\\ProjectController.class.php"
+			],
+			[
+				"admitaskcon",
+				"Application\\Admin\\Controller\\TaskController.class.php"
+			],
+			[
+				"projecont",
+				"Application\\Home\\Controller\\ProjectController.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"E:\\sublime project\\WX.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 258.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
